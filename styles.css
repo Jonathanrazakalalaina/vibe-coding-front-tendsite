@@ -1,0 +1,622 @@
+/* Variables CSS */
+:root {
+    --primary-color: #6C63FF; /* Un violet doux et moderne */
+    --secondary-color: #A3A0FB; /* Une teinte plus claire du violet */
+    --text-color: #333;
+    --light-text-color: #666;
+    --background-light: #F8F9FA;
+    --background-dark: #2C3E50; /* Pour le pied de page */
+    --white: #FFFFFF;
+    --border-color: #E0E0E0;
+    --shadow-light: rgba(0, 0, 0, 0.08);
+    --font-family-primary: 'Poppins', sans-serif;
+}
+
+/* Reset de base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-family-primary);
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--white);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section-padding {
+    padding: 80px 0;
+}
+
+/* Typographie */
+h1, h2, h3 {
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 3.5em;
+    color: var(--white);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+h2 {
+    font-size: 2.5em;
+    text-align: center;
+    margin-bottom: 60px;
+    position: relative;
+}
+
+h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: var(--primary-color);
+    margin: 15px auto 0;
+    border-radius: 2px;
+}
+
+h3 {
+    font-size: 1.8em;
+}
+
+p {
+    margin-bottom: 15px;
+    color: var(--light-text-color);
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--secondary-color);
+}
+
+/* Boutons */
+.btn-primary {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 14px 30px;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    display: inline-block;
+    background-color: var(--white);
+    color: var(--primary-color);
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: 1px solid var(--primary-color);
+    font-weight: 500;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+/* Header */
+header {
+    background-color: var(--white);
+    padding: 20px 0;
+    box-shadow: 0 2px 10px var(--shadow-light);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.8em;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 30px;
+}
+
+.nav-links a {
+    color: var(--text-color);
+    font-weight: 500;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    bottom: 0;
+    left: 0;
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.nav-icons img {
+    width: 24px;
+    height: 24px;
+    margin-left: 20px;
+    filter: invert(20%) sepia(80%) saturate(1000%) hue-rotate(230deg) brightness(80%); /* Pour colorer les SVG */
+    transition: transform 0.2s ease;
+}
+
+.nav-icons img:hover {
+    transform: scale(1.1);
+}
+
+/* Hero Section */
+#hero {
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/hero-bg.jpg') no-repeat center center/cover; /* L'image sera générée ici */
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--white);
+}
+
+.hero-content p {
+    font-size: 1.3em;
+    margin-bottom: 40px;
+    color: var(--white);
+    opacity: 0.9;
+}
+
+/* New Arrivals Section */
+#new-arrivals {
+    background-color: var(--background-light);
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.product-card {
+    background-color: var(--white);
+    border-radius: 10px;
+    box-shadow: 0 5px 20px var(--shadow-light);
+    overflow: hidden;
+    text-align: center;
+    padding-bottom: 25px;
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+}
+
+.product-image {
+    width: 100%;
+    height: 300px;
+    background-color: var(--border-color); /* Placeholder */
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
+    color: var(--light-text-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* Les images réelles seront ajoutées ici via JS ou directement */
+#new-arrivals .product-card:nth-child(1) .product-image { background: url('images/product-1.jpg') no-repeat center center/cover; }
+#new-arrivals .product-card:nth-child(2) .product-image { background: url('images/product-2.jpg') no-repeat center center/cover; }
+#new-arrivals .product-card:nth-child(3) .product-image { background: url('images/product-3.jpg') no-repeat center center/cover; }
+#new-arrivals .product-card:nth-child(4) .product-image { background: url('images/product-4.jpg') no-repeat center center/cover; }
+
+
+.product-card h3 {
+    font-size: 1.3em;
+    margin-bottom: 10px;
+    color: var(--text-color);
+}
+
+.product-card p {
+    font-size: 1.1em;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+/* Collection Section */
+#collection {
+    background-color: var(--white);
+}
+
+.collection-categories {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    text-align: center;
+}
+
+.category-card {
+    background-color: var(--background-light);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px var(--shadow-light);
+    padding: 40px 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 250px;
+}
+
+.category-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px var(--shadow-light);
+}
+
+/* Images pour les catégories (seront générées) */
+#collection .category-card:nth-child(1) { background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('images/category-woman.jpg') no-repeat center center/cover; color: var(--white); }
+#collection .category-card:nth-child(2) { background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('images/category-man.jpg') no-repeat center center/cover; color: var(--white); }
+#collection .category-card:nth-child(3) { background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('images/category-accessories.jpg') no-repeat center center/cover; color: var(--white); }
+
+.category-card h3 {
+    color: var(--white);
+    margin-bottom: 25px;
+    font-size: 2em;
+}
+
+.category-card .btn-secondary {
+    color: var(--white);
+    border-color: var(--white);
+}
+
+.category-card .btn-secondary:hover {
+    background-color: var(--white);
+    color: var(--primary-color);
+}
+
+
+/* About Section */
+#about {
+    background-color: var(--background-light);
+    display: flex;
+    flex-direction: column;
+}
+
+.about-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    align-items: center;
+    padding: 0 30px;
+}
+
+.about-image {
+    flex: 1;
+    min-width: 300px;
+    height: 400px;
+    background: url('images/about-us.jpg') no-repeat center center/cover; /* Image générée */
+    border-radius: 10px;
+    box-shadow: 0 5px 20px var(--shadow-light);
+}
+
+.about-content p {
+    flex: 2;
+    font-size: 1.1em;
+    color: var(--text-color);
+    line-height: 1.8;
+}
+
+/* Contact Section */
+#contact {
+    background-color: var(--primary-color);
+    color: var(--white);
+    text-align: center;
+}
+
+#contact h2 {
+    color: var(--white);
+}
+
+#contact h2::after {
+    background-color: var(--white);
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: var(--text-color);
+    font-family: var(--font-family-primary);
+    font-size: 1em;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: var(--light-text-color);
+}
+
+.contact-form textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+
+.contact-form .btn-primary {
+    background-color: var(--white);
+    color: var(--primary-color);
+    font-size: 1.1em;
+}
+
+.contact-form .btn-primary:hover {
+    background-color: var(--background-light);
+    transform: translateY(-2px);
+}
+
+/* Footer */
+footer {
+    background-color: var(--background-dark);
+    color: var(--white);
+    padding: 40px 0;
+    text-align: center;
+    font-size: 0.9em;
+}
+
+footer .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.social-links img {
+    width: 28px;
+    height: 28px;
+    margin: 0 10px;
+    filter: invert(100%); /* Rendre les icônes blanches */
+    transition: transform 0.2s ease;
+}
+
+.social-links img:hover {
+    transform: translateY(-3px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; /* Cache les liens de navigation sur mobile */
+    }
+
+    .nav-icons {
+        margin-left: auto; /* Pousse les icônes à droite */
+    }
+
+    h1 {
+        font-size: 2.5em;
+    }
+
+    h2 {
+        font-size: 2em;
+    }
+
+    .hero-content p {
+        font-size: 1.1em;
+    }
+
+    .product-grid, .collection-categories {
+        grid-template-columns: 1fr;
+    }
+
+    .about-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-image {
+        min-width: unset;
+        width: 100%;
+        height: 300px;
+    }
+}
+
+/* --- Nouveaux styles pour les interactions JS --- */
+
+/* 1. Header Scrolled (Effet au défilement) */
+header.scrolled {
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    padding: 10px 0; /* Réduit la taille du header */
+    transition: all 0.3s ease;
+}
+
+/* 2. Styles pour les animations de scroll (Hidden/Visible) */
+.hidden-element {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Courbe fluide */
+}
+
+.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Délais en cascade pour les grilles (optionnel mais joli) */
+.product-card:nth-child(2) { transition-delay: 0.1s; }
+.product-card:nth-child(3) { transition-delay: 0.2s; }
+.product-card:nth-child(4) { transition-delay: 0.3s; }
+
+/* 3. Menu Burger (Style) */
+.burger-menu {
+    display: none;
+    cursor: pointer;
+}
+
+.burger-menu div {
+    width: 25px;
+    height: 3px;
+    background-color: var(--text-color);
+    margin: 5px;
+    transition: all 0.3s ease;
+}
+
+/* 4. Badge Panier */
+.cart-badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: var(--primary-color);
+    color: white;
+    font-size: 0.7em;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+/* --- Responsive Update pour le Menu Mobile --- */
+@media (max-width: 768px) {
+    body {
+        overflow-x: hidden; /* Empêche le scroll horizontal */
+    }
+
+    .burger-menu {
+        display: block;
+        z-index: 1002;
+    }
+
+    .nav-links {
+        display: flex; /* On le remet en flex mais caché hors écran */
+        position: fixed;
+        right: 0px;
+        height: 100vh;
+        top: 0;
+        background-color: var(--white);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%; /* Plein écran sur mobile */
+        transform: translateX(100%);
+        transition: transform 0.5s ease-in;
+        z-index: 1001;
+        padding-left: 0; /* Reset padding */
+    }
+
+    .nav-links li {
+        margin: 20px 0;
+        opacity: 0; /* Pour l'animation JS */
+    }
+
+    .nav-links li a {
+        font-size: 1.5em;
+    }
+
+    /* Classe ajoutée par JS quand le menu est ouvert */
+    .nav-active {
+        transform: translateX(0%);
+    }
+
+    /* Animation du Burger en Croix */
+    .toggle .line1 {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+    .toggle .line2 {
+        opacity: 0;
+    }
+    .toggle .line3 {
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
+    
+    .nav-icons {
+        display: none; /* Simplification pour mobile, ou à déplacer dans le menu */
+    }
+}
+
+/* Keyframes pour l'apparition des liens */
+@keyframes navLinkFade {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.nav-icons i {
+    font-size: 24px;
+    color: var(--text-color);
+    margin-left: 20px;
+    transition: color 0.3s ease, transform 0.2s ease;
+    display: inline-block; /* Important pour le transform */
+}
+
+.nav-icons i:hover {
+    color: var(--primary-color); /* Change la couleur au survol */
+    transform: scale(1.1);
+}
+
+.social-links i {
+    font-size: 28px;
+    color: var(--white);
+    margin: 0 10px;
+    transition: color 0.3s ease, transform 0.2s ease;
+    display: inline-block;
+}
+
+.social-links i:hover {
+    color: var(--primary-color);
+    transform: translateY(-3px);
+}
